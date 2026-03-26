@@ -8,25 +8,13 @@ function getComputerChoice(number) {
   } else return "scissors";
 }
 
-// get Player choice of rock, paper or scissors
-function getHumanChoice(rockPaperOrScissors) {
-  rockPaperOrScissors = prompt("Rock, paper or scissors?");
-  if (rockPaperOrScissors === "rock") {
-    return "rock";
-  } else if (rockPaperOrScissors === "scissors") {
-    return "scissors";
-  } else if (rockPaperOrScissors === "paper") {
-    return "paper";
-  } else alert("Rock paper or scissors only.");
-}
-
 // scores
 let humanScore = 0;
 let computerScore = 0;
 
 //The game itself! Compares human choice and computers choice and updates scores accordingly.
 function playRound(humanChoice, computerChoice) {
-  humanChoice = getHumanChoice().toLowerCase();
+  humanChoice.toLowerCase();
   computerChoice = getComputerChoice();
   if (
     (humanChoice == "scissors" && computerChoice == "paper") ||
@@ -48,11 +36,27 @@ function playRound(humanChoice, computerChoice) {
 }
 
 //function to play game 5 times.
-function playGame() {
-  for (i = 0; i < 5; i++) {
-    playRound();
-    alert(`Your score is ${humanScore} \nComputer score is ${computerScore}`);
-  }
-}
+// function playGame() {
+//   for (i = 0; i < 5; i++) {
+//     playRound();
+//     alert(`Your score is ${humanScore} \nComputer score is ${computerScore}`);
+//   }
+// }
+// playGame();
 
-playGame();
+const ROCK = document.querySelector(".rock");
+const PAPER = document.querySelector(".paper");
+const SCISSORS = document.querySelector(".scissors");
+
+ROCK.addEventListener("click", () => {
+  playRound("rock");
+  alert("You pick Rock");
+});
+
+PAPER.addEventListener("click", () => {
+  playRound("paper");
+});
+
+SCISSORS.addEventListener("click", () => {
+  playRound("scissors");
+});
