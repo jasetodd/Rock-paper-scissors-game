@@ -12,37 +12,47 @@ function getComputerChoice(number) {
 let humanScore = 0;
 let computerScore = 0;
 
+let winOrLose = document.querySelector(".winOrLose");
+let cScore = document.querySelector(".cScore");
+let pScore = document.querySelector(".pScore");
+let para = document.createElement("p");
 //The game itself! Compares human choice and computers choice and updates scores accordingly.
 function playRound(humanChoice, computerChoice) {
-  humanChoice.toLowerCase();
   computerChoice = getComputerChoice();
   if (
     (humanChoice == "scissors" && computerChoice == "paper") ||
     (humanChoice == "paper" && computerChoice == "rock") ||
     (humanChoice == "rock" && computerChoice == "scissors")
   ) {
-    alert(`You win! ${humanChoice} beats ${computerChoice}`);
+    winOrLose.appendChild(para);
+    para.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
+    // document.body.appendChild();
+
     humanScore++;
+    pScore.textContent = humanScore;
   } else if (
     (humanChoice == "scissors" && computerChoice == "rock") ||
     (humanChoice == "paper" && computerChoice == "scissors") ||
     (humanChoice == "rock" && computerChoice == "paper")
   ) {
-    alert(`You lose ${computerChoice} beats ${humanChoice}`);
+    winOrLose.appendChild(para);
+    para.textContent = `You lose ${computerChoice} beats ${humanChoice}`;
+
     computerScore++;
+    cScore.textContent = computerScore;
   } else {
-    alert(`It's a tie! You both chose ${computerChoice}`);
+    winOrLose.appendChild(para);
+    para.textContent = `It's a tie! You both chose ${computerChoice}`;
   }
 }
 
-//function to play game 5 times.
-// function playGame() {
-//   for (i = 0; i < 5; i++) {
-//     playRound();
-//     alert(`Your score is ${humanScore} \nComputer score is ${computerScore}`);
-//   }
-// }
-// playGame();
+// function to play game 5 times.
+function playGame() {
+  for (i = 0; i < 5; i++) {
+    playRound();
+  }
+}
+playGame();
 
 const ROCK = document.querySelector(".rock");
 const PAPER = document.querySelector(".paper");
@@ -50,7 +60,6 @@ const SCISSORS = document.querySelector(".scissors");
 
 ROCK.addEventListener("click", () => {
   playRound("rock");
-  alert("You pick Rock");
 });
 
 PAPER.addEventListener("click", () => {

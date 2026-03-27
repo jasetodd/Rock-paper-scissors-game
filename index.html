@@ -7,11 +7,22 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Rock paper scissors game</h1>
-    <button class="rock">Rock</button>
-    <button class="paper">Paper</button>
-    <button class="scissors">Scissors</button>
+    <main>
+      <header>
+        <h1>Rock paper scissors game</h1>
+        <div class="scores">
+          <p>Your score is: <span class="pScore"></span></p>
+          <p>Computer score is: <span class="cScore"></span></p>
+        </div>
+      </header>
 
+      <section class="buttons">
+        <button class="rock button">Rock</button>
+        <button class="paper button">Paper</button>
+        <button class="scissors button">Scissors</button>
+      </section>
+      <div class="winOrLose"></div>
+    </main>
     <script src="javascript.js"></script>
   </body>
 </html>
