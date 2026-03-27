@@ -26,8 +26,6 @@ function playRound(humanChoice, computerChoice) {
   ) {
     winOrLose.appendChild(para);
     para.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
-    // document.body.appendChild();
-
     humanScore++;
     pScore.textContent = humanScore;
   } else if (
@@ -44,15 +42,20 @@ function playRound(humanChoice, computerChoice) {
     winOrLose.appendChild(para);
     para.textContent = `It's a tie! You both chose ${computerChoice}`;
   }
-}
-
-// function to play game 5 times.
-function playGame() {
-  for (i = 0; i < 5; i++) {
-    playRound();
+  if (humanScore === 5) {
+    alert("You win!");
+    humanScore = 0;
+    computerScore = 0;
+    pScore.textContent = 0;
+    cScore.textContent = 0;
+  } else if (computerScore === 5) {
+    alert("Computer wins 😔");
+    pScore.textContent = 0;
+    cScore.textContent = 0;
+    humanScore = 0;
+    computerScore = 0;
   }
 }
-playGame();
 
 const ROCK = document.querySelector(".rock");
 const PAPER = document.querySelector(".paper");

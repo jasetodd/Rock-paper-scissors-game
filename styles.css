@@ -13,7 +13,8 @@ body {
 }
 
 main {
-  height: 56vh;
+  height: 50vh;
+  min-height: 350px;
   background-color: white;
   border-radius: 5px;
   box-shadow: 5px 5px rgb(152, 99, 1);
