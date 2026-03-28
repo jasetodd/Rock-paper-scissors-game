@@ -15,6 +15,7 @@ let computerScore = 0;
 let winOrLose = document.querySelector(".winOrLose");
 let cScore = document.querySelector(".cScore");
 let pScore = document.querySelector(".pScore");
+let header = document.querySelector(".header");
 let para = document.createElement("p");
 //The game itself! Compares human choice and computers choice and updates scores accordingly.
 function playRound(humanChoice, computerChoice) {
@@ -43,13 +44,13 @@ function playRound(humanChoice, computerChoice) {
     para.textContent = `It's a tie! You both chose ${computerChoice}`;
   }
   if (humanScore === 5) {
-    alert("You win!");
+    header.textContent = "You win!";
     humanScore = 0;
     computerScore = 0;
     pScore.textContent = 0;
     cScore.textContent = 0;
   } else if (computerScore === 5) {
-    alert("Computer wins 😔");
+    header.textContent = "Computer wins 😔";
     pScore.textContent = 0;
     cScore.textContent = 0;
     humanScore = 0;
